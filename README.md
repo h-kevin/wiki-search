@@ -1,3 +1,7 @@
+# Wiki Search
+
+React app, get input and use the Wikipedia API to fetch data based on it.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
