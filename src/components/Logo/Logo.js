@@ -1,11 +1,19 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-import burgerLogo from '../../assets/images/burger-logo.png'
+import searchLogo from '../../assets/images/ws-logo.png'
 import classes from './Logo.module.css'
+import { Nav } from 'react-bootstrap'
 
 const logo = () => (
   <div className={classes.Logo}>
-    <img src={burgerLogo} alt="MyBurger" />
+    <Nav.Link
+      as={NavLink}
+      to="/"
+      exact
+    >
+      <img src={searchLogo} alt="ws-logo" />
+    </Nav.Link>
   </div>
 )
 

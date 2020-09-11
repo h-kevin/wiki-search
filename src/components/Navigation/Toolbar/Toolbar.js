@@ -1,20 +1,21 @@
 import React from 'react'
 
-import classes from './Toolbar.module.css'
 import Logo from '../../Logo/Logo'
 import NavigationItems from '../NavigationItems/NavigationItems'
-import DrawerToggle from '../SideDrawer/DrawerToggle/DrawerToggle'
+import { Nav, Navbar } from 'react-bootstrap'
 
 const toolbar = (props) => (
-  <header className={classes.Toolbar}>
-    <DrawerToggle clicked={props.drawerToggleClicked} />
-    <div className={classes.Logo}>
+  <Navbar expanded={props.expanded} bg="light" expand="lg">
+    <Navbar.Brand onClick={props.clicked}>
       <Logo />
-    </div>
-    <nav className={classes.DesktopOnly}>
-      <NavigationItems isAuthenticated={props.isAuth} />
-    </nav>
-  </header>
+    </Navbar.Brand>
+    <Navbar.Toggle onClick={props.toggled} aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav onClick={props.clicked} className="ml-auto">
+        <NavigationItems />
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar>
 )
 
 export default toolbar

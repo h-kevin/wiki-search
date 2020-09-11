@@ -1,24 +1,21 @@
 import React, { Component } from 'react'
-import {connect} from 'react-redux'
 
-import classes from './Layout.module.css'
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar'
-import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer'
 
 class Layout extends Component {
   state = {
-    showSideDrawer: false
+    navExpanded: false
   }
 
-  sideDrawerClosedHandler = () => {
+  closeCollapse = () => {
     this.setState({
-      showSideDrawer: false
+      navExpanded: false
     })
   }
 
-  sideDrawerToggleHandler = () => {
+  toggleCollapse = () => {
     this.setState((prevState) => {
-      return {showSideDrawer: !prevState.showSideDrawer}
+      return {navExpanded: !prevState.navExpanded}
     })
   }
 
@@ -26,15 +23,11 @@ class Layout extends Component {
     return (
       <React.Fragment>
         <Toolbar
-          drawerToggleClicked={this.sideDrawerToggleHandler}
-          isAuth={this.props.isAuthenticated}
+          clicked={this.closeCollapse}
+          toggled={this.toggleCollapse}
+          expanded={this.state.navExpanded}
         />
-        <SideDrawer
-          closed={this.sideDrawerClosedHandler}
-          open={this.state.showSideDrawer}
-          isAuth={this.props.isAuthenticated}
-        />
-        <main className={classes.Content}>
+        <main onClick={this.closeCollapse}>
           {this.props.children}
         </main>
       </React.Fragment>
@@ -42,10 +35,4 @@ class Layout extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    isAuthenticated: state.auth.token !== null
-  }
-}
-
-export default connect(mapStateToProps)(Layout)
+export default Layout

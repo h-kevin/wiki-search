@@ -1,18 +1,15 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-
-import classes from './NavigationItem.module.css'
+import { Nav } from 'react-bootstrap'
 
 const navigationItem = (props) => (
-  <li className={classes.NavigationItem}>
-    <NavLink
-      to={props.link}
-      activeClassName={classes.active}
-      exact
-    >
-      {props.children}
-    </NavLink>
-  </li>
+  <Nav.Link
+    as={NavLink}
+    to={props.link}
+    exact
+  >
+    {props.children}
+  </Nav.Link>
 )
 
 export default navigationItem
