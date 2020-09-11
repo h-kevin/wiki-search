@@ -5,7 +5,7 @@ import NavigationItems from '../NavigationItems/NavigationItems'
 import { Nav, Navbar } from 'react-bootstrap'
 
 const toolbar = (props) => (
-  <Navbar expanded={props.expanded} bg="light" expand="lg">
+  <Navbar className="fixed-top" expanded={props.expanded} bg="light" expand="md">
     <Navbar.Brand onClick={props.clicked}>
       <Logo />
     </Navbar.Brand>

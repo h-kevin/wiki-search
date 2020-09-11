@@ -27,7 +27,7 @@ class Layout extends Component {
           toggled={this.toggleCollapse}
           expanded={this.state.navExpanded}
         />
-        <main onClick={this.closeCollapse}>
+        <main className="p-4 vh-100 d-flex align-items-center" onClick={this.closeCollapse}>
           {this.props.children}
         </main>
       </React.Fragment>

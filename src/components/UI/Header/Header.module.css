@@ -1,0 +1,9 @@
+.Header {
+  font-size: xxx-large;
+}
+
+@media (max-width: 767px) {
+  .Header {
+    font-size: xx-large;
+  }
+}

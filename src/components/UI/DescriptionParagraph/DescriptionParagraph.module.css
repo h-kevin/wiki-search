@@ -1,0 +1,9 @@
+.DescriptionParagraph {
+  font-size: x-large;
+}
+
+@media (max-width: 767px) {
+  .DescriptionParagraph {
+    font-size: larger;
+  }
+}
