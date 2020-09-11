@@ -5,6 +5,10 @@ import DescriptionParagraph from '../../components/UI/DescriptionParagraph/Descr
 import Button from '../../components/UI/Button/Button'
 
 class HomePage extends Component {
+  buttonClickedHandler = () => {
+    this.props.history.push('/search')
+  }
+
   render() {
     return (
       <div>
@@ -15,7 +19,10 @@ class HomePage extends Component {
           It allows you to enter a search query in order
           to fetch data directly from Wikipedia!
         </DescriptionParagraph>
-        <Button btnType="success">
+        <Button
+          btnType="success"
+          clicked={this.buttonClickedHandler}
+        >
           CONTINUE
         </Button>
       </div>
