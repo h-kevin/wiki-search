@@ -48,7 +48,7 @@ class SearchPage extends Component {
         })
 
         try {
-          let res = await axios.get(`/search/page?q=${e.target.value}&limit=5`)
+          let res = await axios.get(`/w/rest.php/v1/search/page?q=${e.target.value}&limit=5`)
           this.setState({
             articles: res.data.pages,
             loading: false
@@ -65,6 +65,11 @@ class SearchPage extends Component {
         articles: null
       })
     }
+  }
+
+  buttonClickedHandler = (destination) => {
+    destination = destination.replace(/\s/g, '_')
+    this.props.history.push(`/articles/${destination}`)
   }
 
   render() {
@@ -113,6 +118,7 @@ class SearchPage extends Component {
             key={page.id}
             title={page.title}
             imageUrl={page.thumbnail ? page.thumbnail.url : null}
+            btnClicked={() => this.buttonClickedHandler(page.title)}
           >
             {striptags(page.excerpt)}...
           </ArticleCard>

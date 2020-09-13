@@ -17,7 +17,12 @@ const articleCard = (props) => (
       <Card.Text>
         {props.children}
       </Card.Text>
-      <Button btnType="primary">READ ARTICLE</Button>
+      <Button
+        btnType="primary"
+        clicked={props.btnClicked}
+      >
+        READ ARTICLE
+      </Button>
     </Card.Body>
   </Card>
 )
