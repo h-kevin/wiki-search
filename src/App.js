@@ -3,9 +3,16 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 
 import Layout from './hoc/Layout/Layout'
 import HomePage from './containers/HomePage/HomePage'
-import SearchPage from './containers/SearchPage/SearchPage'
-import ResultsPage from './containers/ResultsPage/ResultsPage'
+import asyncComponent from './hoc/asyncComponent/asyncComponent'
 import 'bootstrap/dist/css/bootstrap.min.css'
+
+const asyncSearchPage = asyncComponent(() => {
+  return import('./containers/SearchPage/SearchPage')
+})
+
+const asyncResultsPage = asyncComponent(() => {
+  return import('./containers/ResultsPage/ResultsPage')
+})
 
 function App() {
   return (
@@ -13,11 +20,11 @@ function App() {
       <Switch>
         <Route
           path="/articles/:title"
-          component={ResultsPage}
+          component={asyncResultsPage}
         />
         <Route
           path="/search"
-          component={SearchPage}
+          component={asyncSearchPage}
         />
         <Route
           path="/"
