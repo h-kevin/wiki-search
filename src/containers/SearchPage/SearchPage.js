@@ -112,7 +112,16 @@ class SearchPage extends Component {
         </p>
       }
 
-      if (this.state.articles) {
+      if (this.state.articles && this.state.articles.length === 0) {
+        articleCards = <p
+          className="text-center"
+        >
+          No articles were found with these key words. <br />
+        Please try something else.
+      </p>
+      }
+
+      if (this.state.articles && this.state.articles.length > 0) {
         articleCards = this.state.articles.map(page => (
           <ArticleCard
             key={page.id}
